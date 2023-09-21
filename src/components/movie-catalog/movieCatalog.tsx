@@ -1,4 +1,6 @@
 
+import MovieCover from '../movie-cover';
+import { MovieCoverProps } from '../movie-cover/movieCover';
 import styles from './movieCatalog.module.css';
 
 type MovieCatalogProps = {
