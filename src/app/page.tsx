@@ -1,9 +1,13 @@
-export default function Home() {
+import MovieCatalog from "@/components/movie-catalog";
+import { getMovieList } from "@/services/movies/movies.services";
+
+const Home = async () => {
+  const movieList = await getMovieList();
   return (
   <>
-    <h1>
-      WIP
-    </h1>
+    <MovieCatalog movieList={movieList} />
   </>
   )
 }
+
+export default Home;
