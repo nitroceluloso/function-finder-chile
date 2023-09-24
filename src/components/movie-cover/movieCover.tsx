@@ -1,3 +1,4 @@
+import { parseMovieTitle } from '@/utils/url';
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -11,7 +12,7 @@ export const MovieCover = ({
     title,
 }: MovieCoverProps) => (
     <article>
-        <Link href={`/movie/${id}`} aria-description='link to Barbie schedules'>
+        <Link href={`/movie/${parseMovieTitle(title)}`} aria-description='link to Barbie schedules'>
             <figure className="relative aspect-[2/3]">
                 <Image
                     src={'/images/dracula.jpeg'}
