@@ -1,24 +1,32 @@
-import Image from 'next/image';
+// import Image from 'next/image';
+import { redirect } from 'next/navigation'
 
-export const ShowTimeFilter = () => {
+interface ShowtimeFilterProps {
+    title: string,
+    duration: number;
+}
+
+export const ShowTimeFilter = ({
+    title,
+    duration,
+}: ShowtimeFilterProps) => {
     return (
         <div className="flex border-2 border-white md:flex-col">
             <div className="w-1/2 md:w-full">
-                {/* <img src="./images/dracula.jpeg" alt="" /> */}
-                <Image
+                {/* <Image
                     src={'/images/dracula.jpeg'}
                     alt='dracula cover'
                     width={280}
                     height={0}
                     sizes="100vw"
-                />
+                /> */}
             </div>
             <div className="w-1/2  md:w-full p-4 flex flex-col justify-between">
                 <div>
-                    <p className="text-center mb-4 text-lg">Dracula</p>
+                    <p className="text-center mb-4 text-lg">{title}</p>
                     <div className="flex justify-between mb-4">
                         <div>Duracion:</div>
-                        <div>117 min.</div>
+                        <div>{duration} min.</div>
                     </div>
                     <div className=" mb-4">
                         <label htmlFor="cine" className="block">Cine</label>

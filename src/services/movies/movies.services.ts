@@ -9,3 +9,11 @@ export const getMovieList = async () => {
     }
     return await MovieModel.find().sort(sortFilter);
 };
+
+export const getMovieByTitle = async (title: string) => {
+    await databaseConnect();
+    const query = {
+        title
+    }
+    return await MovieModel.findOne(query);
+}

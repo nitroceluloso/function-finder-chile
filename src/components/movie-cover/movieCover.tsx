@@ -12,7 +12,7 @@ export const MovieCover = ({
     title,
 }: MovieCoverProps) => (
     <article>
-        <Link href={`/movie/${parseMovieTitle(title)}`} aria-description='link to Barbie schedules'>
+        <Link href={`/movie/${parseMovieTitle(title)}/showtime/0`} aria-description='link to Barbie schedules'>
             <figure className="relative aspect-[2/3]">
                 <Image
                     src={'/images/dracula.jpeg'}

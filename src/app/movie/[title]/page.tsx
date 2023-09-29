@@ -12,14 +12,15 @@ interface MovieShowtimeParams {
 const MovieShowtime = async ({
     params,
 }: MovieShowtimeParams) => {
-    const list = await getShowtime(params.title);
-    const orderList = groupByTime(list);
-    return (
-        <div className="flex flex-col md:flex-row md:items-start gap-4">
-            <ShowTimeFilter />
-            <ShowtimeWrap showtimeList={orderList} />
-        </div>
-    );
+    return null;
+    // const list = await getShowtime(params.title);
+    // const orderList = groupByTime(list);
+    // return (
+    //     <div className="flex flex-col md:flex-row md:items-start gap-4">
+    //         <ShowTimeFilter />
+    //         <ShowtimeWrap showtimeList={orderList} />
+    //     </div>
+    // );
 };
 
 export default MovieShowtime;
