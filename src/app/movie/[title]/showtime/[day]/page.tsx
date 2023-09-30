@@ -1,4 +1,4 @@
-import { useSearchParams } from 'next/navigation'
+// import { useSearchParams } from 'next/navigation'
 import ShowtimeWrap from "@/components/showtime-wrap";
 import { getShowtime } from "@/services/showtime/showtime.services";
 import { groupByTime } from "../../helper";
@@ -13,15 +13,14 @@ interface MovieShowtimeParams {
 
 const ShowtimePage = async ({
     params,
-    searchParams
+    // searchParams,
 }: MovieShowtimeParams) => {
     const { day = '0', title } = params;
     const currentDay = parseInt(day);
     const list = await getShowtime(title, currentDay);
     const orderList = groupByTime(list);
-
     return (
-        <ShowtimeWrap showtimeList={orderList} title={params.title} currentDay={currentDay} />
+        <ShowtimeWrap showtimeList={orderList} title={params.title} currentDay={currentDay}/>
     );
 };
 

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ShowtimeRow from "../showtime-row";
 import { ShowtimeRowProps } from "../showtime-row/showtimeRow";
+import styles from "./styles.module.css";
+import { Suspense } from 'react'
 
 interface ShowtimeWrap {
     showtimeList: ShowtimeRowProps[];
@@ -43,13 +45,13 @@ export const ShowtimeWrap = ({
     return (
     <div className="flex flex-col grow overflow-x-auto flex gap-4 m-4">
         <div className="flex justify-between mb-4 sm:mx-3 md:m-auto md:w-96">
-                { getPrevBtn(currentDay, prevLink) }
-                <h2 className="text-lg text-center"> {today} </h2>
-                <Link href={nextLink}>
-                    <button> &#8594; </button>
-                </Link>
-            </div>
-        <div className="flex gap-x-5 overflow-x-auto">
+            { getPrevBtn(currentDay, prevLink) }
+            <h2 className="text-lg text-center"> {today} </h2>
+            <Link href={nextLink}>
+                <button> &#8594; </button>
+            </Link>
+        </div>
+        <div className={`flex gap-x-5 overflow-x-auto overflow-y-auto ${styles.maxHeigth}`}>
             {showtimeList.map(mapFn)}
         </div>
     </div>

@@ -1,3 +1,4 @@
+import { ShowtimeStorage } from "@/@custom-types/showtime";
 import { ShowtimeLink } from "../showtime-link/showtimeLink";
 
 export interface ShowtimeRowProps {
@@ -5,13 +6,13 @@ export interface ShowtimeRowProps {
     showtimeList: any[];
 }
 
-const mapFn = (showtime: any, idx: number) =>
+const mapFn = (showtime: ShowtimeStorage, idx: number) =>
     (<ShowtimeLink
         key={idx}
         cinema={showtime.cinema}
         time={showtime.time}
         teather={showtime.teather.name}
-        endTime=""
+        link={showtime.link}
     />);
 
 export const ShowtimeRow = ({

@@ -1,22 +1,26 @@
 interface ShowtimeLinkProps {
     time: string;
-    endTime: string;
+    // endTime: string;
     cinema: string;
     teather: any;
+    link: string;
 }
 
 export const ShowtimeLink = ({
-    cinema,
-    endTime,
     teather,
     time,
+    link,
 }: ShowtimeLinkProps) => (
     <div className="border-2 border-white rounded-md text-center md:p-2">
         <p className="font-semibold mb:mb-1 mb:text-lg md:hidden">
-            {time}
+            <a href={link} target="_blank">
+                {time}
+            </a>
         </p>
         <p className="font-semibold mb:mb-1 mb:text-lg hidden md:block">
-            {time} ~ {endTime}
+            <a href={link} target="_blank">
+                {time}
+            </a>
         </p>
         {/* <p className="hidden md:block text-sm">
             {cinema}
