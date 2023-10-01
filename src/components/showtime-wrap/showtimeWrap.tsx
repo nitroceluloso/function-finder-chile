@@ -10,7 +10,7 @@ interface ShowtimeWrap {
     currentDay: number;
 }
 
-const mapFn = (row: ShowtimeRowProps, idx: number) => <ShowtimeRow key={idx} {...row} />
+const mapFn = (row: ShowtimeRowProps, idx: number) => <ShowtimeRow key={row.hour} {...row} />
 
 const getPrevBtn = (currentDay: number, prevLink: string) => {
     if (currentDay === 0) return <div></div>;
