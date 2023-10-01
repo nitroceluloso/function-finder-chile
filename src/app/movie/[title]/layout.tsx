@@ -17,7 +17,7 @@ const MovieShowtime = async ({
     const movie = await getMovieByTitle(readMovieTitle(params.title));
     return (
         <div className="flex flex-col md:flex-row md:items-start gap-4">
-            <ShowTimeFilter title={movie.title} duration={movie.duration} />
+            <ShowTimeFilter title={movie.title} duration={movie.duration} image={movie.image} />
             {children}
         </div>
     );

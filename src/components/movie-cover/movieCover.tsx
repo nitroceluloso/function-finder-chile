@@ -5,11 +5,13 @@ import Link from 'next/link'
 export type MovieCoverProps = {
     id: number,
     title: string;
+    image: string;
 }
 
 export const MovieCover = ({
     id,
     title,
+    image,
 }: MovieCoverProps) => (
     <article>
         <Link
@@ -17,14 +19,18 @@ export const MovieCover = ({
             aria-description='link to Barbie schedules'
         >
             <figure className="relative aspect-[2/3]">
-                <Image
+                <img
+                    src={image}
+                    className='w-full'
+                />
+                {/* <Image
                     src={'/images/dracula.jpeg'}
                     alt='dracula cover'
                     width={0}
                     height={0}
                     sizes="100vw"
                     style={{ width: '100%', height: 'auto' }}
-                />
+                /> */}
                 <figcaption className='text-center p-4'>
                     {title}
                 </figcaption>

@@ -12,7 +12,6 @@ interface MovieShowtimeParams {
 
 const ShowtimePage = async ({
     params,
-    // searchParams,
 }: MovieShowtimeParams) => {
     const { day = '0', title } = params;
     const currentDay = parseInt(day);

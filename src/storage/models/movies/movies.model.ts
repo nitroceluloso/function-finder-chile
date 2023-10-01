@@ -4,6 +4,7 @@ const movieSchema = new Schema({
   id: Number,
   title: String,
   duration: Number,
+  image: String,
   active: Boolean,
 }, {
   collection: 'movies',
