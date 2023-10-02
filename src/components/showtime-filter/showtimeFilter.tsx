@@ -1,29 +1,19 @@
 'use client';
 import { FormEvent } from 'react';
-// import Image from 'next/image';
 import { useRouter } from 'next/navigation'
-import Link from 'next/link';
 
 interface ShowtimeFilterProps {
     title: string,
     duration: number;
+    image: string;
 }
 
 export const ShowTimeFilter = ({
     title,
     duration,
+    image,
 }: ShowtimeFilterProps) => {
     const router = useRouter();
-    const options = [
-        {
-            label: 'primero',
-            value: 'primero',
-        },
-        {
-            label: 'segundo',
-            value: 'segundo'
-        }
-    ]
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -42,9 +32,7 @@ export const ShowTimeFilter = ({
     return (
         <div className="flex border-2 border-white md:flex-col">
             <div className="w-1/2 md:w-full">
-                <Link href="/">
-                    <p style={{textAlign: 'center'}}>Home</p>
-                </Link>
+                <img src={image} className='w-full'/>
                 {/* <Image
                     src={'/images/dracula.jpeg'}
                     alt='dracula cover'

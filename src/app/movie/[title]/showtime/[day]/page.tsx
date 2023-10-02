@@ -1,7 +1,6 @@
-// import { useSearchParams } from 'next/navigation'
 import ShowtimeWrap from "@/components/showtime-wrap";
-import { getShowtime } from "@/services/showtime/showtime.services";
-import { groupByTime } from "../../helper";
+import DayNavigator from "@/components/day-navigator";
+import { Suspense } from "react";
 
 interface MovieShowtimeParams {
     params: {
@@ -13,14 +12,23 @@ interface MovieShowtimeParams {
 
 const ShowtimePage = async ({
     params,
-    // searchParams,
 }: MovieShowtimeParams) => {
     const { day = '0', title } = params;
     const currentDay = parseInt(day);
-    const list = await getShowtime(title, currentDay);
-    const orderList = groupByTime(list);
+
     return (
-        <ShowtimeWrap showtimeList={orderList} title={params.title} currentDay={currentDay}/>
+    <div className="flex flex-col grow overflow-x-auto flex gap-4 m-4">
+        <DayNavigator
+            title={params.title}
+            currentDay={currentDay}
+        />
+        <Suspense fallback={<p>Loading functions...</p>}>
+            <ShowtimeWrap
+                title={params.title}
+                currentDay={currentDay}
+            />
+        </Suspense>
+    </div>
     );
 };
 
