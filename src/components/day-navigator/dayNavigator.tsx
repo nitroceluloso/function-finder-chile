@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 interface DayNavitagorProps {
@@ -21,7 +22,14 @@ const getPrevBtn = (currentDay: number, prevLink: string) => {
 
     return (
         <Link href={prevLink}>
-            <button> &#8592; </button>
+            <button>
+                <Image
+                    alt="flecha izquierda"
+                    src="/icons/chevron-left.svg"
+                    width="30"
+                    height="30"
+                />
+            </button>
         </Link>
     );
 }
@@ -39,7 +47,14 @@ export const DayNavigator = ({
             { getPrevBtn(currentDay, prevLink) }
             <h2 className="text-lg text-center"> {today} </h2>
             <Link href={nextLink}>
-                <button> &#8594; </button>
+                <button>
+                    <Image
+                        alt="flecha derecha"
+                        src="/icons/chevron-right.svg"
+                        width="30"
+                        height="30"
+                    />
+                </button>
             </Link>
         </div>
     );
