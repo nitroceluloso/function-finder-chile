@@ -1,6 +1,7 @@
 import ShowtimeWrap from "@/components/showtime-wrap";
 import DayNavigator from "@/components/day-navigator";
 import { Suspense } from "react";
+import { Spinner } from "@/components/spinner/spinner";
 
 interface MovieShowtimeParams {
     params: {
@@ -22,7 +23,7 @@ const ShowtimePage = async ({
             title={params.title}
             currentDay={currentDay}
         />
-        <Suspense fallback={<p>Loading functions...</p>}>
+        <Suspense fallback={<Spinner />}>
             <ShowtimeWrap
                 title={params.title}
                 currentDay={currentDay}
