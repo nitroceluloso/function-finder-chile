@@ -3,24 +3,14 @@ interface ShowtimeLinkProps {
     cinema: string;
     teather: any;
     link: string;
-    minutes: number;
-}
-
-const getIsAvailable = (time: string, limit: number): boolean => {
-    const minutes = parseInt(time.split(':').at(1) as string);
-    return minutes > limit;
 }
 
 export const ShowtimeLink = ({
     teather,
     time,
     link,
-    minutes,
-}: ShowtimeLinkProps) => {
-    const isAvailable = getIsAvailable(time, minutes) ? '' : 'hidden';
-
-    return (
-    <div className={`border-2 border-white rounded-md text-center md:p-2 ${isAvailable}`}>
+}: ShowtimeLinkProps) => (
+    <div className={`border-2 border-white rounded-md text-center md:p-2`}>
         <p className="font-semibold mb:mb-1 mb:text-lg md:hidden">
             <a href={link} target="_blank">
                 {time}
@@ -38,5 +28,4 @@ export const ShowtimeLink = ({
             {teather}
         </p>
     </div>
-    );
-};
+);

@@ -1,6 +1,11 @@
 import { ShowtimeStorage } from "@/@custom-types/showtime";
 
-export const groupByTime = (showtimeList: ShowtimeStorage[]) => {
+export interface groupByTimeReturn {
+    hour: number;
+    showtimeList: ShowtimeStorage[];
+}
+
+export const groupByTime = (showtimeList: ShowtimeStorage[]): groupByTimeReturn[] => {
     const map = new Map();
     showtimeList.forEach((showtime) => {
         const time = parseInt(showtime.time.slice(0,2));
@@ -9,10 +14,7 @@ export const groupByTime = (showtimeList: ShowtimeStorage[]) => {
     });
 
     const rowList = Array.from(map);
-    rowList.sort((a, b) => {
-        if (a < b) return -1;
-        return 1;
-    });
+    rowList.sort((a, b) => (a < b) ? -1 : 1);
 
     return rowList.map((el) => ({
         hour: el.at(0),
