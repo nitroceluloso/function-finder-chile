@@ -20,12 +20,12 @@ const ShowtimePage = async ({
     return (
     <div className="flex flex-col grow overflow-x-auto flex gap-4 m-4">
         <DayNavigator
-            title={params.title}
+            title={title}
             currentDay={currentDay}
         />
         <Suspense fallback={<Spinner />}>
             <ShowtimeWrap
-                title={params.title}
+                title={title}
                 currentDay={currentDay}
             />
         </Suspense>

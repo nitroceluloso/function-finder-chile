@@ -1,13 +1,19 @@
 import MovieCatalog from "@/components/movie-catalog";
-import { getMovieList } from "@/services/movies/movies.services";
+import { Spinner } from "@/components/spinner/spinner";
+import { Suspense } from "react";
 
-const Home = async () => {
-  const movieList = await getMovieList();
-  return (
+const LoadingMovies = () => (
+  <div className="flex align-center">
+      <Spinner />
+  </div>
+);
+
+const Home = () => (
   <>
-    <MovieCatalog movieList={movieList} />
+    <Suspense fallback={<LoadingMovies />}>
+      <MovieCatalog />
+    </Suspense>
   </>
-  )
-}
+)
 
 export default Home;
