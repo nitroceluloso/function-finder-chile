@@ -12,8 +12,8 @@ export const Menu = () => (
                     </Link>
                 </li>
                 <li>
-                    <Link href="">
-                        Por que?
+                    <Link href="/nosotros">
+                        Lore
                     </Link>
                 </li>
             </ul>
