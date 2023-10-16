@@ -13,6 +13,7 @@ const mapFn = (showtime: ShowtimeStorage, idx: number) => (
         time={showtime.time}
         teather={showtime.teather.name}
         link={showtime.link}
+        language={showtime.language}
     />
 );
 

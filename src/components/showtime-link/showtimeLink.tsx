@@ -1,4 +1,5 @@
 interface ShowtimeLinkProps {
+    language: string;
     time: string;
     cinema: string;
     teather: any;
@@ -6,9 +7,10 @@ interface ShowtimeLinkProps {
 }
 
 export const ShowtimeLink = ({
+    language,
+    link,
     teather,
     time,
-    link,
 }: ShowtimeLinkProps) => (
     <div className={`border-2 border-white rounded-md text-center md:p-2`}>
         <p className="font-semibold mb:mb-1 mb:text-lg md:hidden">
@@ -24,8 +26,11 @@ export const ShowtimeLink = ({
         {/* <p className="hidden md:block text-sm">
             {cinema}
         </p> */}
-        <p className="hidden md:block text-sm">
+        <p className="hidden md:block text-sm mb-1">
             {teather}
+        </p>
+        <p className="hidden md:block text-xs">
+            ({language.toLowerCase()})
         </p>
     </div>
 );

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import style from "./nosotros.module.css";
 
-const containerStyle = `m-auto ${style.aboutUs}`;
+const containerStyle = `m-auto py-8 ${style.aboutUs}`;
 
-const AboutUs = () => (
+const Us = () => (
 <div className={containerStyle}>
     <h1 className="text-2xl mb-4">Lore</h1>
     <p className="mb-4">
@@ -25,4 +25,4 @@ const AboutUs = () => (
 </div>
 )
 
-export default AboutUs;
+export default Us;
