@@ -1,3 +1,3 @@
-import { MovieCatalog } from './MovieCatalog'
+import { MovieCatalog } from './movieCatalog';
 
 export default MovieCatalog;
