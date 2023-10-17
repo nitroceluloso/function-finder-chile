@@ -19,7 +19,7 @@ export const MovieCover = ({
       aria-description='link to Barbie schedules'
     >
       <figure className="relative aspect-[2/3]">
-        <Image
+        <img
           src={image}
           height="318"
           width="218"

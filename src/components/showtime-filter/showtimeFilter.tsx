@@ -1,6 +1,7 @@
 'use client';
 import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation'
+// import Image from 'next/image'
 
 interface ShowtimeFilterProps {
     title: string,
@@ -32,14 +33,13 @@ export const ShowTimeFilter = ({
     return (
         <div className="flex border-2 border-white md:flex-col">
             <div className="w-1/2 md:w-full">
-                <img src={image} className='w-full'/>
-                {/* <Image
-                    src={'/images/dracula.jpeg'}
-                    alt='dracula cover'
-                    width={280}
-                    height={0}
-                    sizes="100vw"
-                /> */}
+                <img
+                    src={image}
+                    alt='caratula de la pelicula'
+                    height="318"
+                    width="218"
+                    className='m-auto'
+                />
             </div>
             <div className="w-1/2  md:w-full p-4 flex flex-col justify-between">
                 <form name="filter" onSubmit={handleSubmit}>
