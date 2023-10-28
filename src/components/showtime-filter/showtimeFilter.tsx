@@ -10,7 +10,7 @@ interface ShowtimeFilterProps {
     title: string,
     duration: number;
     image: string;
-    locationList: Record<string, Teather[]>;
+    locationList: Record<string, Omit<Teather, 'name'>>;
 }
 
 export const ShowTimeFilter = ({
@@ -20,6 +20,7 @@ export const ShowTimeFilter = ({
     locationList,
 }: ShowtimeFilterProps) => {
     const router = useRouter();
+    console.log(locationList)
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
