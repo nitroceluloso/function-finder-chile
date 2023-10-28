@@ -1,5 +1,7 @@
+import { isEnvDevelopment } from '@/utils/environment';
 import mongoose from 'mongoose';
-mongoose.set('debug', true);
+
+if(isEnvDevelopment()) mongoose.set('debug', true);
 
 declare global {
   var mongoose: any // This must be a `var` and not a `let / const`
@@ -24,9 +26,10 @@ async function databaseConnect() {
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
+    const dbName = isEnvDevelopment() ? 'development' : 'main';
     const opts = {
       bufferCommands: false,
-      dbName: 'main',
+      dbName,
     }
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => mongoose);
   }

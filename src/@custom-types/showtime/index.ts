@@ -11,3 +11,9 @@ export interface ShowtimeStorage {
         code: string;
     };
 }
+
+export interface ShowtimeSearchParams {
+    chain?: string;
+    teather?: string;
+    language?: string;
+}
