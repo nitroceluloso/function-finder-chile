@@ -11,8 +11,8 @@ export const Menu = () => (
                     </Link>
                 </li>
                 <li className="p-2 hover:bg-slate-800 rounded-md">
-                    <Link href="/nosotros">
-                        Lore
+                    <Link href="/pq">
+                        Pq?
                     </Link>
                 </li>
             </ul>
