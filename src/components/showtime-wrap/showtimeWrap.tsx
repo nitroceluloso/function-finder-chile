@@ -4,10 +4,12 @@ import { ShowtimeRowProps } from "../showtime-row/showtimeRow";
 import styles from "./styles.module.css";
 import { groupByTime } from "@/utils/showtime/group";
 import { filterOldShowtimes } from "./showtimeWrap.helper";
+import { ShowtimeSearchParams } from "@/@custom-types/showtime";
 
 interface ShowtimeWrap {
     title: string;
     currentDay: number;
+    searchParams: ShowtimeSearchParams;
 }
 
 const mapFn = (row: ShowtimeRowProps, idx: number) => <ShowtimeRow key={row.hour} {...row} />
@@ -17,8 +19,9 @@ const emptyMessage = (<p className="m-auto mt-12">no hay funciones para el dia s
 export const ShowtimeWrap = async ({
     title,
     currentDay,
+    searchParams,
 }: ShowtimeWrap) => {
-    const list = await getShowtime(title, currentDay);
+    const list = await getShowtime(title, searchParams, currentDay);
     const orderList = groupByTime(list);
 
     const isToday = currentDay === 0;

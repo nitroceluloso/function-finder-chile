@@ -2,17 +2,19 @@ import ShowtimeWrap from "@/components/showtime-wrap";
 import DayNavigator from "@/components/day-navigator";
 import { Suspense } from "react";
 import { Spinner } from "@/components/spinner/spinner";
+import { ShowtimeSearchParams } from "@/@custom-types/showtime";
 
 interface MovieShowtimeParams {
     params: {
         title: string,
         day: string,
     },
-    searchParams: Record<string, unknown>,
+    searchParams: ShowtimeSearchParams;
 }
 
 const ShowtimePage = async ({
     params,
+    searchParams,
 }: MovieShowtimeParams) => {
     const { day = '0', title } = params;
     const currentDay = parseInt(day);
@@ -27,6 +29,7 @@ const ShowtimePage = async ({
             <ShowtimeWrap
                 title={title}
                 currentDay={currentDay}
+                searchParams={searchParams}
             />
         </Suspense>
     </div>
