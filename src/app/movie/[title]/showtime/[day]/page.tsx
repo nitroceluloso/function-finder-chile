@@ -18,7 +18,6 @@ const ShowtimePage = async ({
 }: MovieShowtimeParams) => {
     const { day = '0', title } = params;
     const currentDay = parseInt(day);
-    console.log(searchParams)
 
     return (
     <div className="flex flex-col grow overflow-x-auto flex gap-4 m-4">

@@ -72,7 +72,7 @@ export const ShowTimeFilter = ({
                     {/* <div className="mb-4 flex flex-col gap-y-2">
                         <label htmlFor="cinema" className="block">Cine</label>
                         <Select
-                            isMulti
+                            isMulti={true as false}
                             name="cinema"
                             className='bg-black w-full'
                             options={TEATHER_OPTIONS}
@@ -83,7 +83,7 @@ export const ShowTimeFilter = ({
                     <div className="flex flex-col gap-y-2 mb-4">
                         <label htmlFor="teather" className="block">Locaciones</label>
                         <Select
-                            isMulti
+                            isMulti={true as false}
                             name="teather"
                             className='bg-black w-full'
                             options={locationList['CH']}
