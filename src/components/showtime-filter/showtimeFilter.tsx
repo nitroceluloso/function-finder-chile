@@ -3,14 +3,14 @@ import { FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Select from 'react-select';
 import { LANGUAGE_OPTIONS, SELECT_STYLES, TEATHER_OPTIONS } from './constants';
-import { Teather } from '@/@custom-types/teather';
+import { TeatherOption } from '@/@custom-types/teather';
 // import Image from 'next/image'
 
 interface ShowtimeFilterProps {
     title: string,
     duration: number;
     image: string;
-    locationList: Record<string, Omit<Teather, 'name'>>;
+    locationList: Record<string, TeatherOption[]>;
 }
 
 export const ShowTimeFilter = ({
@@ -20,7 +20,6 @@ export const ShowTimeFilter = ({
     locationList,
 }: ShowtimeFilterProps) => {
     const router = useRouter();
-    console.log(locationList)
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -37,7 +36,7 @@ export const ShowTimeFilter = ({
 
         const query = new URLSearchParams(formDataObject).toString();
         router.push(`?${query}`);
-      };
+    };
 
 
     return (
@@ -51,7 +50,7 @@ export const ShowTimeFilter = ({
                     className='m-auto'
                 />
             </div>
-            <div className="w-1/2  md:w-full p-4 flex flex-col justify-between">
+            <div className="w-1/2  md:w-full max-w-xs p-4 flex flex-col justify-between">
                 <form name="filter" onSubmit={handleSubmit}>
                 <div className='mb-8'>
                     <p className="text-center mb-4 text-lg">{title}</p>
@@ -60,6 +59,17 @@ export const ShowTimeFilter = ({
                         <div>{duration} min.</div>
                     </div>
                     <div className="mb-4 flex flex-col gap-y-2">
+                        <label htmlFor="language">Idioma</label>
+                        <Select
+                            isClearable={true}
+                            name="language"
+                            className='bg-black w-full'
+                            options={LANGUAGE_OPTIONS}
+                            placeholder="Todos"
+                            styles={SELECT_STYLES}
+                        />
+                    </div>
+                    {/* <div className="mb-4 flex flex-col gap-y-2">
                         <label htmlFor="cinema" className="block">Cine</label>
                         <Select
                             isMulti
@@ -69,24 +79,17 @@ export const ShowTimeFilter = ({
                             placeholder="Todos"
                             styles={SELECT_STYLES}
                         />
-                    </div>
-                    {/* <div className="flex justify-between mb-4">
-                        <label htmlFor="teather" className="block">Tipo</label>
-                        <select name="teather" id="teather" className="block w-full text-black">
-                            <option value="todos">todos</option>
-                            <option value="doblada">normal</option>
-                            <option value="original">premium</option>
-                        </select>
                     </div> */}
-                    <div className="flex flex-col gap-y-2">
-                        <label htmlFor="language">Idioma</label>
+                    <div className="flex flex-col gap-y-2 mb-4">
+                        <label htmlFor="teather" className="block">Locaciones</label>
                         <Select
-                            isClearable={true}
-                            name="language"
+                            isMulti
+                            name="teather"
                             className='bg-black w-full'
-                            options={LANGUAGE_OPTIONS}
+                            options={locationList['CH']}
                             placeholder="Todos"
                             styles={SELECT_STYLES}
+                            menuPlacement="top"
                         />
                     </div>
                 </div>
